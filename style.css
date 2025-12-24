@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --brand-golden: #D79922;
+    --brand-beige: #EFE2BA;
+    --brand-coral: #F13C20;
+    --brand-dark-blue: #4056A1;
+    --brand-light-purple: #C5CBE3;
+    --bg-main: #FFFFFF;
+    --bg-alt: #F8F9FA;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-main);
+    color: #1A202C;
+    line-height: 1.6;
+}
+
+.shadow-premium {
+    box-shadow: 0 10px 15px -3px rgba(64, 86, 161, 0.1), 0 4px 6px -2px rgba(64, 86, 161, 0.05);
+}
+
+.bg-brand-golden { background-color: var(--brand-golden); }
+.bg-brand-beige { background-color: var(--brand-beige); }
+.bg-brand-coral { background-color: var(--brand-coral); }
+.bg-brand-dark-blue { background-color: var(--brand-dark-blue); }
+.bg-brand-light-purple { background-color: var(--brand-light-purple); }
+
+.text-brand-golden { color: var(--brand-golden); }
+.text-brand-coral { color: var(--brand-coral); }
+.text-brand-dark-blue { color: var(--brand-dark-blue); }
+
+.border-brand-golden { border-color: var(--brand-golden); }
+.border-brand-dark-blue { border-color: var(--brand-dark-blue); }
+
+[x-cloak] { display: none !important; }
