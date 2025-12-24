@@ -1,0 +1,65 @@
+<!-- Футер -->
+<footer class="bg-white border-t-8 border-brand-darkBlue pt-16 pb-8">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div>
+            <div class="text-xl font-bold text-brand-darkBlue uppercase mb-6 italic">TechPrint <span class="text-brand-golden">NN</span></div>
+            <p class="text-gray-500 text-sm leading-relaxed">Центр аддитивных технологий: профессиональная 3D-печать, 3D-моделирование и реверс-инжиниринг деталей в Нижнем Новгороде.</p>
+        </div>
+        <nav aria-label="Дополнительное меню">
+            <h5 class="text-sm font-black text-brand-darkBlue uppercase mb-6 tracking-widest text-brand-darkBlue">Меню</h5>
+            <ul class="text-sm space-y-3 text-gray-600 uppercase font-semibold">
+                <li>
+                    <a href="index.html"
+                    class="{% if page.fileSlug == '' %}text-brand-golden{% else %}hover:text-brand-golden transition{% endif %}">
+                        Главная
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html"
+                    class="{% if page.fileSlug == 'services' %}text-brand-golden{% else %}hover:text-brand-golden transition{% endif %}">
+                        Услуги
+                    </a>
+                </li>
+
+                <li>
+                    <a href="prices.html"
+                    class="{% if page.fileSlug == 'prices' %}text-brand-golden{% else %}hover:text-brand-golden transition{% endif %}">
+                        Цены
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cases.html"
+                    class="{% if page.fileSlug == 'cases' %}text-brand-golden{% else %}hover:text-brand-golden transition{% endif %}">
+                        Кейсы
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacts.html"
+                    class="{% if page.fileSlug == 'contacts' %}text-brand-golden{% else %}hover:text-brand-golden transition{% endif %}">
+                        Контакты
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <div>
+            <h5 class="text-sm font-black text-brand-darkBlue uppercase mb-6 tracking-widest">Контакты в НН</h5>
+            <ul class="text-sm space-y-3 text-gray-600">
+                <li class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-brand-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <a href="tel:+78315553535" class="hover:text-brand-darkBlue font-bold">+7 (831) 555-35-35</a>
+                </li>
+                <li class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-brand-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Нижний Новгород, ул. Большая Покровская, 60</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center pt-8 border-t border-gray-100 text-[10px] uppercase tracking-[0.2em] text-gray-400">
+        &copy; 2025 TechPrint NN. Студия 3D-печати. Все права защищены.
+    </div>
+</footer>

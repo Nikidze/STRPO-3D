@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://techprint-nn.ru{{ url }}">
+    <meta property="og:image" content="{{ og_image }}">
+
+    <link rel="canonical" href="https://techprint-nn.ru{{ url }}">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            golden: '#D79922', beige: '#EFE2BA', coral: '#F13C20', darkBlue: '#4056A1', lightPurple: '#C5CBE3',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen">
+
+    {% include "header.njk" %}
+
+    <main class="flex-grow">
+        {{ content | safe }}
+    </main>
+
+    {% include "footer.njk" %}
+    {% include "modal.njk" %}
+
+</body>
+</html>

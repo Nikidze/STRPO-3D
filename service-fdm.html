@@ -1,166 +1,359 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FDM Печать - TechPrint NN</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
-                    colors: {
-                        brand: {
-                            golden: '#D79922', beige: '#EFE2BA', coral: '#F13C20', darkBlue: '#4056A1', lightPurple: '#C5CBE3',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="antialiased font-sans flex flex-col min-h-screen">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Услуги FDM печати в Нижнем Новгороде | Технология 3D-печати TechPrint NN</title>
+        <meta
+            name="description"
+            content="Закажите профессиональную FDM печать деталей из PLA, PETG, ABS и ASA пластика в Нижнем Новгороде. Изготовление прочных корпусов, прототипов и запчастей по доступным ценам.."
+        />
+        <meta
+            name="keywords"
+            content="FDM печать нижний новгород, 3д печать пластиком, печать деталей на заказ, PLA печать, ABS печать, ASA пластик 3д печать, TechPrint NN"
+        />
 
+        <!-- Open Graph -->
+        <meta property="og:title" content="Услуги FDM печати в Нижнем Новгороде | Технология 3D-печати TechPrint NN" />
+        <meta
+            property="og:description"
+            content="Закажите профессиональную FDM печать деталей из PLA, PETG, ABS и ASA пластика в Нижнем Новгороде. Изготовление прочных корпусов, прототипов и запчастей по доступным ценам.."
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://techprint-nn.rucases" />
+        <meta property="og:image" content="" />
+
+        <link rel="canonical" href="https://techprint-nn.rucases" />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: { sans: ["Roboto", "sans-serif"] },
+                        colors: {
+                            brand: {
+                                golden: "#D79922",
+                                beige: "#EFE2BA",
+                                coral: "#F13C20",
+                                darkBlue: "#4056A1",
+                                lightPurple: "#C5CBE3",
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body class="antialiased font-sans flex flex-col min-h-screen">
         <!-- Навигация -->
-    <header x-data="{ mobileMenuOpen: false }" class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-brand-darkBlue rounded flex items-center justify-center text-white font-black text-sm">3D</div>
-                <span class="text-lg md:text-xl font-bold tracking-tight text-brand-darkBlue uppercase">TechPrint <span class="text-brand-golden">NN</span></span>
-            </a>
-            
-            <!-- ПК -->
-            <nav class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-gray-600">
-                <a href="index.html" class="hover:text-brand-darkBlue transition">Главная</a>
-                <a href="services.html" class="hover:text-brand-darkBlue transition text-brand-darkBlue border-b-2 border-brand-golden pb-1">Услуги</a>
-                <a href="prices.html" class="hover:text-brand-darkBlue transition">Цены</a>
-                <a href="cases.html" class="hover:text-brand-darkBlue transition">Кейсы</a>
-                <a href="contacts.html" class="hover:text-brand-darkBlue transition">Контакты</a>
-            </nav>
+        <header
+            x-data="{ mobileMenuOpen: false }"
+            class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm"
+        >
+            <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2" title="TechPrint NN - Главная">
+                    <div
+                        class="w-8 h-8 bg-brand-darkBlue rounded flex items-center justify-center text-white font-black text-sm"
+                    >
+                        3D
+                    </div>
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-brand-darkBlue uppercase"
+                        >TechPrint <span class="text-brand-golden">NN</span></span
+                    >
+                </a>
 
-            <div class="flex items-center space-x-4">
-                <button @click="$dispatch('open-modal')" class="hidden md:block bg-brand-darkBlue text-white px-5 py-2 rounded-sm text-[10px] font-black tracking-widest hover:bg-opacity-90 transition">
-                    ЗАЯВКА
-                </button>
-                <!-- Бургер -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-brand-darkBlue focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path><path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
+                <nav
+                    class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-gray-600"
+                >
+                    <a href="index.html" class="hover:text-brand-darkBlue transition"> Главная </a>
+                    <a href="services.html" class="hover:text-brand-darkBlue transition"> Услуги </a>
+                    <a href="prices.html" class="hover:text-brand-darkBlue transition"> Цены </a>
+                    <a href="cases.html" class="hover:text-brand-darkBlue transition"> Кейсы </a>
+                    <a href="contacts.html" class="hover:text-brand-darkBlue transition"> Контакты </a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <button
+                        @click="$dispatch('open-modal')"
+                        class="italic hidden md:block bg-brand-darkBlue text-white px-5 py-2 rounded-sm text-[10px] font-black tracking-widest hover:bg-opacity-90 transition"
+                    >
+                        ЗАКАЗАТЬ 3D-ПЕЧАТЬ
+                    </button>
+                    <button
+                        @click="mobileMenuOpen = !mobileMenuOpen"
+                        class="lg:hidden text-brand-darkBlue focus:outline-none"
+                        aria-label="Открыть меню"
+                    >
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                x-show="!mobileMenuOpen"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            ></path>
+                            <path
+                                x-show="mobileMenuOpen"
+                                x-cloak
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Мобилка -->
-        <div x-show="mobileMenuOpen" x-cloak 
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             class="lg:hidden bg-white border-b border-gray-100 absolute w-full left-0 z-50">
-            <nav class="flex flex-col p-6 space-y-4 text-sm font-bold uppercase tracking-widest text-gray-600">
-                <a href="index.html" class="hover:text-brand-darkBlue pl-2">Главная</a>
-                <a href="services.html" class="hover:text-brand-darkBlue pl-2 text-brand-darkBlue border-l-4 border-brand-golden">Услуги</a>
-                <a href="prices.html" class="hover:text-brand-darkBlue pl-2">Цены</a>
-                <a href="cases.html" class="hover:text-brand-darkBlue pl-2">Кейсы</a>
-                <a href="contacts.html" class="hover:text-brand-darkBlue pl-2">Контакты</a>
-                <button @click="$dispatch('open-modal'); mobileMenuOpen = false" class="bg-brand-coral text-white py-3 rounded-sm text-center">ОСТАВИТЬ ЗАЯВКУ</button>
-            </nav>
-        </div>
-    </header>
+            <!-- Мобилка -->
+            <div
+                x-show="mobileMenuOpen"
+                x-cloak
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 -translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                class="lg:hidden bg-white border-b border-gray-100 absolute w-full left-0 z-50"
+            >
+                <nav class="flex flex-col p-6 space-y-4 text-sm font-bold uppercase tracking-widest text-gray-600">
+                    <a href="index.html" class="hover:text-brand-darkBlue transition"> Главная </a>
+                    <a href="services.html" class="hover:text-brand-darkBlue transition"> Услуги </a>
+                    <a href="prices.html" class="hover:text-brand-darkBlue transition"> Цены </a>
+                    <a href="cases.html" class="hover:text-brand-darkBlue transition"> Кейсы </a>
+                    <a href="contacts.html" class="hover:text-brand-darkBlue transition"> Контакты </a>
+                    <button
+                        @click="$dispatch('open-modal'); mobileMenuOpen = false"
+                        class="italic bg-brand-coral text-white py-3 rounded-sm text-center"
+                    >
+                        ЗАКАЗАТЬ 3D-ПЕЧАТЬ
+                    </button>
+                </nav>
+            </div>
+        </header>
 
-    <main class="flex-grow">
-        <section class="bg-gray-50 py-16 md:py-24">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-20">
-                <div class="md:w-1/2">
-                    <div class="text-[10px] uppercase font-black text-brand-golden tracking-[0.3em] mb-4">ТЕХНОЛОГИЯ 01</div>
-                    <h1 class="text-4xl md:text-6xl font-black text-brand-darkBlue uppercase italic mb-6 leading-none tracking-tighter">FDM <br><span class="text-brand-golden italic">ПЕЧАТЬ</span></h1>
-                    <p class="text-gray-500 text-lg md:text-xl font-light italic leading-relaxed mb-8">Послойное наплавление термопластичной нити. Оптимальный выбор для производства функциональных изделий, корпусов и прототипов.</p>
-                    <div class="grid grid-cols-2 gap-4 text-[9px] font-black uppercase tracking-widest text-brand-darkBlue opacity-80 italic">
-                        <span class="flex items-center"><span class="w-2 h-2 bg-brand-golden mr-3"></span>От 15 ₽ / грамм</span>
-                        <span class="flex items-center"><span class="w-2 h-2 bg-brand-golden mr-3"></span>Минимум от 500 ₽</span>
-                        <span class="flex items-center"><span class="w-2 h-2 bg-brand-golden mr-3"></span>Точность 0.1 мм</span>
-                        <span class="flex items-center"><span class="w-2 h-2 bg-brand-golden mr-3"></span>Слой от 0.1 мм</span>
+        <main class="flex-grow">
+            <section class="bg-gray-50 py-16 md:py-24">
+                <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                    <div class="md:w-1/2">
+                        <nav class="text-[10px] font-black uppercase tracking-[0.3em] text-brand-golden mb-4">
+                            <a href="services.html" class="hover:underline">Услуги</a> / FDM Технология
+                        </nav>
+                        <h1
+                            class="text-4xl md:text-6xl font-black text-brand-darkBlue uppercase italic mb-6 leading-none tracking-tighter"
+                        >
+                            FDM <br /><span class="text-brand-golden italic">ПЕЧАТЬ</span>
+                        </h1>
+                        <p class="text-gray-500 text-lg md:text-xl font-light italic leading-relaxed mb-8">
+                            Послойное наплавление термопластичной нити — самая востребованная технология 3D-печати в
+                            Нижнем Новгороде для создания прочных функциональных изделий и корпусов.
+                        </p>
+                        <div
+                            class="grid grid-cols-2 gap-4 text-[9px] font-black uppercase tracking-widest text-brand-darkBlue opacity-80 italic"
+                        >
+                            <span class="flex items-center"
+                                ><span class="w-2 h-2 bg-brand-golden mr-3"></span>Цена: от 15 ₽ / грамм</span
+                            >
+                            <span class="flex items-center"
+                                ><span class="w-2 h-2 bg-brand-golden mr-3"></span>Заказ: от 500 ₽</span
+                            >
+                            <span class="flex items-center"
+                                ><span class="w-2 h-2 bg-brand-golden mr-3"></span>Точность до 0.1 мм</span
+                            >
+                            <span class="flex items-center"
+                                ><span class="w-2 h-2 bg-brand-golden mr-3"></span>Слой: 0.1 - 0.3 мм</span
+                            >
+                        </div>
+                    </div>
+                    <div
+                        class="md:w-1/2 w-full h-64 md:h-96 bg-brand-lightPurple border-8 border-white shadow-premium flex items-center justify-center overflow-hidden"
+                    >
+                        <img
+                            src="img/fdm.jpg"
+                            alt="Процесс FDM 3D-печати на профессиональном принтере"
+                            class="w-full h-full object-cover"
+                        />
                     </div>
                 </div>
-                <div class="md:w-1/2 w-full h-64 md:h-96 bg-brand-lightPurple border-8 border-white shadow-premium flex items-center justify-center text-brand-darkBlue opacity-40 font-black uppercase tracking-widest text-[10px] text-center p-12">
-                    [ ВИЗУАЛИЗАЦИЯ: ПРИНЦИП РАБОТЫ FDM ПРИНТЕРА ]
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                    <div class="space-y-8">
-                        <h3 class="text-xl font-black text-brand-darkBlue uppercase italic border-l-4 border-brand-coral pl-4">Материалы</h3>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xs font-black text-brand-darkBlue uppercase tracking-widest mb-2">PLA (Биопластик)</h4>
-                                <p class="text-[11px] text-gray-500 leading-relaxed font-light uppercase tracking-tight">Высокая детализация, экологичность. Не подходит для температур выше 50°C. Лучший выбор для макетов.</p>
+            <section class="py-16 md:py-24 bg-white">
+                <div class="container mx-auto px-6 max-w-5xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        <div class="space-y-8">
+                            <h2
+                                class="text-xl font-black text-brand-darkBlue uppercase italic border-l-4 border-brand-coral pl-4"
+                            >
+                                Используемые материалы
+                            </h2>
+                            <div class="space-y-6">
+                                <article>
+                                    <h3 class="text-xs font-black text-brand-darkBlue uppercase tracking-widest mb-2">
+                                        PLA (Биопластик)
+                                    </h3>
+                                    <p
+                                        class="text-[11px] text-gray-500 leading-relaxed font-light uppercase tracking-tight"
+                                    >
+                                        Экологичный полимер для декоративных изделий и высокодетализированных макетов.
+                                        Легко поддается обработке.
+                                    </p>
+                                </article>
+                                <article>
+                                    <h3 class="text-xs font-black text-brand-darkBlue uppercase tracking-widest mb-2">
+                                        ABS / ASA (Промышленные)
+                                    </h3>
+                                    <p
+                                        class="text-[11px] text-gray-500 leading-relaxed font-light uppercase tracking-tight"
+                                    >
+                                        Ударопрочные пластмассы. ASA не выгорает на солнце, оптимален для наружного
+                                        применения и автозапчастей.
+                                    </p>
+                                </article>
+                                <article>
+                                    <h3 class="text-xs font-black text-brand-darkBlue uppercase tracking-widest mb-2">
+                                        PETG (Стойкий)
+                                    </h3>
+                                    <p
+                                        class="text-[11px] text-gray-500 leading-relaxed font-light uppercase tracking-tight"
+                                    >
+                                        Сочетает простоту печати и высокую химическую стойкость. Подходит для механизмов
+                                        и промышленной оснастки.
+                                    </p>
+                                </article>
                             </div>
-                            <div>
-                                <h4 class="text-xs font-black text-brand-darkBlue uppercase tracking-widest mb-2">ABS / ASA (Инженерные)</h4>
-                                <p class="text-[11px] text-gray-500 leading-relaxed font-light uppercase tracking-tight">Прочные, термостойкие. ASA устойчив к УФ-лучам. Идеальны для деталей автомобилей и уличных корпусов.</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-black text-brand-darkBlue uppercase tracking-widest mb-2">PETG (Универсальный)</h4>
-                                <p class="text-[11px] text-gray-500 leading-relaxed font-light uppercase tracking-tight">Химическая стойкость, гибкость и прочность. Подходит для пищевого оборудования и деталей механизмов.</p>
+                        </div>
+                        <div class="space-y-8">
+                            <h2
+                                class="text-xl font-black text-brand-darkBlue uppercase italic border-l-4 border-brand-golden pl-4"
+                            >
+                                Технические возможности
+                            </h2>
+                            <div class="bg-gray-50 p-8 border-2 border-brand-beige space-y-4 shadow-sm">
+                                <p
+                                    class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest flex items-center"
+                                >
+                                    <span class="text-brand-golden mr-3">✔</span> Крупногабаритная печать до 400мм
+                                </p>
+                                <p
+                                    class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest flex items-center"
+                                >
+                                    <span class="text-brand-golden mr-3">✔</span> Настраиваемая плотность заполнения
+                                    (0-100%)
+                                </p>
+                                <p
+                                    class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest flex items-center"
+                                >
+                                    <span class="text-brand-golden mr-3">✔</span> Использование растворимых поддержек
+                                    (HIPS/PVA)
+                                </p>
+                                <p
+                                    class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest flex items-center"
+                                >
+                                    <span class="text-brand-golden mr-3">✔</span> Склеивание в неограниченные по размеру
+                                    изделия
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-black text-brand-darkBlue uppercase italic border-l-4 border-brand-golden pl-4 mb-8 italic">Возможности</h3>
-                        <div class="bg-gray-50 p-8 border-2 border-brand-beige space-y-4">
-                            <p class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest"><span class="text-brand-golden">•</span> Большая область печати до 0.4м</p>
-                            <p class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest"><span class="text-brand-golden">•</span> Различная плотность заполнения</p>
-                            <p class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest"><span class="text-brand-golden">•</span> Печать растворимых поддержек (HIPS)</p>
-                            <p class="text-[10px] font-black uppercase text-brand-darkBlue tracking-widest"><span class="text-brand-golden">•</span> Сборные конструкции любых размеров</p>
-                        </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer class="bg-white border-t-8 border-brand-darkBlue pt-16 pb-8">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="text-xl font-bold text-brand-darkBlue uppercase mb-6 italic">
+                        TechPrint <span class="text-brand-golden">NN</span>
                     </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Центр аддитивных технологий: профессиональная 3D-печать, 3D-моделирование и реверс-инжиниринг
+                        деталей в Нижнем Новгороде.
+                    </p>
+                </div>
+                <nav aria-label="Дополнительное меню">
+                    <h5
+                        class="text-sm font-black text-brand-darkBlue uppercase mb-6 tracking-widest text-brand-darkBlue"
+                    >
+                        Меню
+                    </h5>
+                    <ul class="text-sm space-y-3 text-gray-600 uppercase font-semibold">
+                        <li>
+                            <a href="index.html" class="hover:text-brand-golden transition"> Главная </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html" class="hover:text-brand-golden transition"> Услуги </a>
+                        </li>
+
+                        <li>
+                            <a href="prices.html" class="hover:text-brand-golden transition"> Цены </a>
+                        </li>
+
+                        <li>
+                            <a href="cases.html" class="hover:text-brand-golden transition"> Кейсы </a>
+                        </li>
+
+                        <li>
+                            <a href="contacts.html" class="hover:text-brand-golden transition"> Контакты </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div>
+                    <h5 class="text-sm font-black text-brand-darkBlue uppercase mb-6 tracking-widest">Контакты в НН</h5>
+                    <ul class="text-sm space-y-3 text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <svg
+                                class="w-4 h-4 text-brand-golden"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                                ></path>
+                            </svg>
+                            <a href="tel:+78315553535" class="hover:text-brand-darkBlue font-bold"
+                                >+7 (831) 555-35-35</a
+                            >
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg
+                                class="w-4 h-4 text-brand-golden"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                ></path>
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                ></path>
+                            </svg>
+                            <span>Нижний Новгород, ул. Большая Покровская, 60</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
-
- <!-- Футер -->
-    <footer class="bg-white border-t-8 border-brand-darkBlue pt-16 pb-8">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            <div>
-                <div class="text-xl font-bold text-brand-darkBlue uppercase mb-6 italic">TechPrint <span class="text-brand-golden">NN</span></div>
-                <p class="text-gray-500 text-sm leading-relaxed">Профессиональные аддитивные технологии для бизнеса и частных лиц в Нижнем Новгороде с 2025 года.</p>
+            <div class="text-center pt-8 border-t border-gray-100 text-[10px] uppercase tracking-[0.2em] text-gray-400">
+                &copy; 2025 TechPrint NN. Студия 3D-печати. Все права защищены.
             </div>
-            <div>
-                <h5 class="text-sm font-black text-brand-darkBlue uppercase mb-6 tracking-widest text-brand-darkBlue">Меню</h5>
-                <ul class="text-sm space-y-3 text-gray-600 uppercase font-semibold">
-                    <li><a href="index.html" class="hover:text-brand-golden transition">Главная</a></li>
-                    <li><a href="services.html" class="hover:text-brand-golden transition text-brand-golden">Услуги</a></li>
-                    <li><a href="cases.html" class="hover:text-brand-golden transition">Кейсы</a></li>
-                    <li><a href="prices.html" class="hover:text-brand-golden transition">Цены</a></li>
-                    <li><a href="contacts.html" class="hover:text-brand-golden transition">Контакты</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="text-sm font-black text-brand-darkBlue uppercase mb-6 tracking-widest">Контакты</h5>
-                <ul class="text-sm space-y-3 text-gray-600">
-                    <li class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-brand-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        <span>+7 (831) 555-35-35</span>
-                    </li>
-                    <li class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-brand-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span>ул. Большая Покровская, 60</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="text-center pt-8 border-t border-gray-100 text-[10px] uppercase tracking-[0.2em] text-gray-400">
-            &copy; 2025 TechPrint NN. Все права защищены.
-        </div>
-    </footer>
-
-    <div 
-        x-data="{ 
+        </footer>
+        <!-- Модальное окно -->
+        <div
+            x-data="{ 
             isOpen: false,
             init() {
                 this.$watch('isOpen', (value) => {
@@ -171,46 +364,73 @@
                     }
                 });
             }
-        }" 
-        @open-modal.window="isOpen = true"
-        @keydown.escape.window="isOpen = false"
-        x-show="isOpen" 
-        x-cloak
-        x-transition:enter="transition opacity-0 pointer-events-none duration-300"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition opacity-100 duration-300"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-darkBlue bg-opacity-95 backdrop-blur-sm"
-    >
-    <div @click.away="isOpen = false" class="bg-white w-full max-w-lg p-6 md:p-10 rounded-sm shadow-2xl relative border-t-8 border-brand-coral">
-        <button @click="isOpen = false" class="absolute top-4 right-4 text-3xl font-light text-brand-darkBlue hover:text-brand-coral transition">&times;</button>
-        <h2 class="text-2xl md:text-3xl font-black mb-2 text-brand-darkBlue uppercase italic">ЗАПРОС КП</h2>
-        <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-8 opacity-60">Расчет стоимости в течение 2-х часов</p>
-        
-        <form class="space-y-6">
-            <!-- Имя и Телефон -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1">Имя</label>
-                    <input type="text" class="w-full bg-gray-50 border-b-2 border-brand-lightPurple p-3 text-xs focus:border-brand-golden outline-none transition uppercase font-bold tracking-tighter">
-                </div>
-                <div>
-                    <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1">Телефон</label>
-                    <input type="tel" class="w-full bg-gray-50 border-b-2 border-brand-lightPurple p-3 text-xs focus:border-brand-golden outline-none transition uppercase font-bold tracking-tighter">
-                </div>
-            </div>
+        }"
+            @open-modal.document="isOpen = true"
+            @keydown.escape.window="isOpen = false"
+            x-show="isOpen"
+            x-cloak
+            x-transition:enter="transition opacity-0 pointer-events-none duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition opacity-100 duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-darkBlue bg-opacity-95 backdrop-blur-sm"
+        >
+            <div
+                @click.away="isOpen = false"
+                class="bg-white w-full max-w-lg p-6 md:p-10 rounded-sm shadow-2xl relative border-t-8 border-brand-coral"
+            >
+                <button
+                    @click="isOpen = false"
+                    class="absolute top-4 right-4 text-3xl font-light text-brand-darkBlue hover:text-brand-coral transition"
+                >
+                    &times;
+                </button>
+                <h2 class="text-2xl md:text-3xl font-black mb-2 text-brand-darkBlue uppercase italic">
+                    ЗАПРОС РАСЧЕТА
+                </h2>
+                <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-8 opacity-60">
+                    Бесплатный расчет стоимости в течение 2-х часов
+                </p>
 
-             <!-- Сообщение -->
-            <div>
-                <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1">Сообщение</label>
-                <textarea rows="3" class="w-full bg-gray-50 border-b-2 border-brand-lightPurple p-3 text-xs focus:border-brand-golden outline-none transition uppercase font-bold tracking-tighter"></textarea>
-            </div>
+                <form class="space-y-6">
+                    <!-- Имя и Телефон -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1"
+                                >Имя</label
+                            >
+                            <input
+                                type="text"
+                                class="w-full bg-gray-50 border-b-2 border-brand-lightPurple p-3 text-xs focus:border-brand-golden outline-none transition uppercase font-bold tracking-tighter"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1"
+                                >Телефон</label
+                            >
+                            <input
+                                type="tel"
+                                class="w-full bg-gray-50 border-b-2 border-brand-lightPurple p-3 text-xs focus:border-brand-golden outline-none transition uppercase font-bold tracking-tighter"
+                            />
+                        </div>
+                    </div>
 
-            <!-- Интерактивная Загрузка Файла (STL) -->
-            <div 
-                x-data="{ 
+                    <!-- Сообщение -->
+                    <div>
+                        <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1"
+                            >Сообщение</label
+                        >
+                        <textarea
+                            rows="3"
+                            class="w-full bg-gray-50 border-b-2 border-brand-lightPurple p-3 text-xs focus:border-brand-golden outline-none transition uppercase font-bold tracking-tighter"
+                        ></textarea>
+                    </div>
+
+                    <!-- Интерактивная Загрузка Файла (STL) -->
+                    <div
+                        x-data="{ 
                     dragging: false,
                     fileName: '',
                     handleFile(files) {
@@ -225,72 +445,111 @@
                         this.$refs.fileInput.value = '';
                     }
                 }"
-                @dragover.prevent="dragging = true"
-                @dragleave.prevent="dragging = false"
-                @drop.prevent="handleFile($event.dataTransfer.files)"
-                class="relative group"
-            >
-                <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1">Файл (STL)</label>
-                
-                <!-- Скрытый инпут -->
-                <input 
-                    type="file" 
-                    x-ref="fileInput" 
-                    class="hidden" 
-                    accept=".stl,application/octet-stream"
-                    @change="handleFile($event.target.files)"
-                >
-
-                <!-- Область дроп-зоны -->
-                <div 
-                    class="relative w-full border-2 border-dashed rounded-sm transition-all duration-300 cursor-pointer overflow-hidden bg-gray-50"
-                    :class="dragging ? 'border-brand-coral bg-brand-lightPurple bg-opacity-10' : 'border-brand-lightPurple hover:border-brand-golden'"
-                    @click="$refs.fileInput.click()"
-                >
-                    <!-- Состояние "Пусто" (инструкция) -->
-                    <div 
-                        class="flex flex-col items-center justify-center py-5 transition-all duration-300"
-                        :class="fileName ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'"
+                        @dragover.prevent="dragging = true"
+                        @dragleave.prevent="dragging = false"
+                        @drop.prevent="handleFile($event.dataTransfer.files)"
+                        class="relative group"
                     >
-                        <svg class="w-8 h-8 text-brand-darkBlue opacity-30 mb-2 group-hover:text-brand-coral transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                        </svg>
-                        <p class="text-[9px] uppercase font-bold text-brand-darkBlue tracking-wider">Нажмите или перетащите файл</p>
-                        <p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">Формат STL</p>
-                    </div>
+                        <label class="block text-[9px] uppercase font-black text-gray-400 tracking-widest mb-1"
+                            >Файл (STL)</label
+                        >
 
-                    <!-- Состояние "Файл выбран" -->
-                    <div 
-                        x-show="fileName"
-                        x-transition
-                        class="absolute inset-0 flex items-center justify-between px-4 py-3 bg-white"
-                    >
-                        <div class="flex items-center gap-3 overflow-hidden">
-                            <div class="p-2 bg-brand-coral bg-opacity-10 rounded-full">
-                                <svg class="w-4 h-4 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <!-- Скрытый инпут -->
+                        <input
+                            type="file"
+                            x-ref="fileInput"
+                            class="hidden"
+                            accept=".stl,application/octet-stream"
+                            @change="handleFile($event.target.files)"
+                        />
+
+                        <!-- Область дроп-зоны -->
+                        <div
+                            class="relative w-full border-2 border-dashed rounded-sm transition-all duration-300 cursor-pointer overflow-hidden bg-gray-50"
+                            :class="dragging ? 'border-brand-coral bg-brand-lightPurple bg-opacity-10' : 'border-brand-lightPurple hover:border-brand-golden'"
+                            @click="$refs.fileInput.click()"
+                        >
+                            <!-- Состояние "Пусто" (инструкция) -->
+                            <div
+                                class="flex flex-col items-center justify-center py-5 transition-all duration-300"
+                                :class="fileName ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-brand-darkBlue opacity-30 mb-2 group-hover:text-brand-coral transition-colors"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                                    ></path>
+                                </svg>
+                                <p class="text-[9px] uppercase font-bold text-brand-darkBlue tracking-wider">
+                                    Нажмите или перетащите файл
+                                </p>
+                                <p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">Формат STL</p>
                             </div>
-                            <div class="flex flex-col min-w-0">
-                                <span class="text-[9px] text-gray-400 uppercase tracking-widest">Загружен</span>
-                                <span x-text="fileName" class="text-xs font-bold text-brand-darkBlue tracking-tight truncate"></span>
+
+                            <!-- Состояние "Файл выбран" -->
+                            <div
+                                x-show="fileName"
+                                x-transition
+                                class="absolute inset-0 flex items-center justify-between px-4 py-3 bg-white"
+                            >
+                                <div class="flex items-center gap-3 overflow-hidden">
+                                    <div class="p-2 bg-brand-coral bg-opacity-10 rounded-full">
+                                        <svg
+                                            class="w-4 h-4 text-brand-coral"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col min-w-0">
+                                        <span class="text-[9px] text-gray-400 uppercase tracking-widest">Загружен</span>
+                                        <span
+                                            x-text="fileName"
+                                            class="text-xs font-bold text-brand-darkBlue tracking-tight truncate"
+                                        ></span>
+                                    </div>
+                                </div>
+                                <button
+                                    type="button"
+                                    @click.stop="clearFile"
+                                    class="text-gray-400 hover:text-red-500 p-1 transition"
+                                    title="Удалить файл"
+                                >
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12"
+                                        ></path>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <button 
-                            type="button" 
-                            @click.stop="clearFile" 
-                            class="text-gray-400 hover:text-red-500 p-1 transition"
-                            title="Удалить файл"
-                        >
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                        </button>
                     </div>
-                </div>
-            </div>
 
-            <button type="submit" class="w-full bg-brand-coral text-white font-black py-4 rounded-sm hover:-translate-y-1 transition-all uppercase tracking-[0.2em] italic text-xs">
-                ОТПРАВИТЬ ДАННЫЕ
-            </button>
-        </form>
-    </div>
-</div>
-</body>
+                    <button
+                        type="submit"
+                        class="w-full bg-brand-coral text-white font-black py-4 rounded-sm hover:-translate-y-1 transition-all uppercase tracking-[0.2em] italic text-xs"
+                    >
+                        ОТПРАВИТЬ НА РАСЧЕТ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

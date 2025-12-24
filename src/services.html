@@ -1,0 +1,94 @@
+---
+layout: layout.njk
+title: Услуги 3D-печати и моделирования в Нижнем Новгороде | TechPrint NN
+description: "Полный спектр услуг аддитивного производства в Нижнем Новгороде: высокоточная FDM и SLA печать, 3D-моделирование и реверс-инжиниринг. Профессиональные решения для бизнеса."
+keywords: услуги 3д печати нижний новгород, 3d печать на заказ, промышленная 3д печать, sla печать смолой, изготовление деталей по образцу
+url: "services"
+og_image: ""
+
+---
+<section class="bg-gray-50 py-16 md:py-20">
+    <div class="container mx-auto px-6">
+        <nav class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-4">
+            <a href="index.html" class="hover:text-brand-darkBlue">Главная</a> / Услуги
+        </nav>
+        <h1
+            class="text-4xl md:text-5xl font-black text-brand-darkBlue uppercase italic mb-8 border-l-8 border-brand-golden pl-6 leading-none">
+            УСЛУГИ 3D-ПРОИЗВОДСТВА</h1>
+        <p class="text-gray-500 max-w-2xl text-lg md:text-xl font-light">От разработки инженерного чертежа до
+            серийного выпуска готовых пластиковых изделий в Нижнем Новгороде.</p>
+    </div>
+</section>
+
+<!-- Услуги -->
+<section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6 space-y-24 md:space-y-32">
+        <!-- FDM -->
+        <article class="flex flex-col lg:flex-row items-center gap-12 md:gap-16">
+            <div class="lg:w-1/2 relative">
+                <div
+                    class="text-5xl md:text-6xl font-black text-brand-beige absolute -top-10 -left-2 -z-10 select-none opacity-50">
+                    01</div>
+                <h2 class="text-2xl md:text-3xl font-black text-brand-darkBlue uppercase mb-6 italic">FDM Печать
+                    (Термопласты)</h2>
+                <div class="space-y-4 mb-8">
+                    <p class="text-gray-500 italic text-sm font-light leading-relaxed">Самый надежный и бюджетный метод
+                        для создания прочных технических деталей. Мы используем инженерные пластики для решения реальных
+                        производственных задач.</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Высокая прочность</li>
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Материалы: ASA, ABS, Carbon</li>
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Область до 400 мм</li>
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Срок от 24 часов</li>
+                    </ul>
+                </div>
+                <a href="service-fdm.html"
+                    class="inline-block bg-brand-darkBlue text-white px-8 py-4 rounded-sm font-black text-[10px] uppercase tracking-[0.2em] italic hover:bg-brand-golden transition shadow-lg">ПОДРОБНЕЕ
+                    ОБ FDM</a>
+            </div>
+            <div
+                class="lg:w-1/2 w-full h-64 md:h-80 bg-brand-lightPurple overflow-hidden border-8 border-white shadow-premium">
+                <img src="img/fdm.jpg" class="w-full h-full object-cover"
+                    alt="Профессиональная FDM 3D-печать пластиковых деталей">
+            </div>
+        </article>
+
+        <!-- SLA -->
+        <article class="flex flex-col lg:flex-row-reverse items-center gap-12 md:gap-16">
+            <div class="lg:w-1/2 relative">
+                <div
+                    class="text-5xl md:text-6xl font-black text-brand-beige absolute -top-10 -left-2 -z-10 select-none opacity-50">
+                    02</div>
+                <h2 class="text-2xl md:text-3xl font-black text-brand-darkBlue uppercase mb-6 italic">SLA / LCD (Смолы)
+                </h2>
+                <div class="space-y-4 mb-8">
+                    <p class="text-gray-500 italic text-sm font-light leading-relaxed">Технология печати смолами
+                        обеспечивает исключительную гладкость и детализацию. Идеально для стоматологии, ювелирного дела
+                        и точных мастер-моделей.</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Сверхгладкая поверхность</li>
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Толщина слоя 25 микрон</li>
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Прозрачные детали</li>
+                        <li class="flex items-center text-[10px] uppercase font-black text-gray-400 tracking-wider">
+                            <span class="w-1.5 h-1.5 bg-brand-golden mr-2"></span>Фотополимерные смолы</li>
+                    </ul>
+                </div>
+                <button @click="$dispatch('open-modal')"
+                    class="bg-brand-darkBlue text-white px-8 py-4 rounded-sm font-black text-[10px] uppercase tracking-[0.2em] italic hover:bg-brand-golden transition shadow-lg">ЗАКАЗАТЬ
+                    SLA ПЕЧАТЬ</button>
+            </div>
+            <div
+                class="lg:w-1/2 w-full h-64 md:h-80 bg-brand-lightPurple overflow-hidden border-8 border-white shadow-premium">
+                <img src="img/sla.jpg" class="w-full h-full object-cover"
+                    alt="Высокоточная SLA печать фотополимерными смолами">
+            </div>
+        </article>
+    </div>
+</section>
