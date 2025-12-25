@@ -301,7 +301,7 @@
                             <div
                                 class="bg-gray-100 w-full md:w-1/2 h-56 md:h-64 flex items-center justify-center text-gray-400 font-bold uppercase tracking-tighter text-xs shrink-0"
                             >
-                                <img src="img/fara.jpg" alt="Фара" />
+                                <img src="img/fara.jpg" alt="Фара" class="h-full" />
                             </div>
                             <div class="w-full md:w-1/2">
                                 <span class="text-brand-golden font-bold text-[10px] uppercase tracking-widest"
@@ -331,7 +331,7 @@
                             <div
                                 class="bg-gray-100 w-full md:w-1/2 h-56 md:h-64 flex items-center justify-center text-gray-400 font-bold uppercase tracking-tighter text-xs shrink-0"
                             >
-                                <img src="img/home.jpg" alt="Фара" />
+                                <img src="img/home.jpg" alt="Здание" class="h-full" />
                             </div>
                             <div class="w-full md:w-1/2">
                                 <span class="text-brand-golden font-bold text-[10px] uppercase tracking-widest"
@@ -350,11 +350,41 @@
                                 >
                             </div>
                         </div>
+                        <!-- 3 -->
+                        <div
+                            x-show="activeSlide === 3"
+                            x-transition:enter="transition ease-out duration-300"
+                            x-transition:enter-start="opacity-0 scale-95"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            class="flex flex-col md:flex-row items-center gap-6 md:gap-10"
+                        >
+                            <div
+                                class="bg-gray-100 w-full md:w-1/2 h-56 md:h-64 flex items-center justify-center text-gray-400 font-bold uppercase tracking-tighter text-xs shrink-0"
+                            >
+                                <img src="img/cpp-dots.png" alt="3d-модель" class="h-full" />
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <span class="text-brand-golden font-bold text-[10px] uppercase tracking-widest"
+                                    >Моделирование</span
+                                >
+                                <h4 class="text-2xl font-black text-brand-darkBlue mt-2 mb-4 uppercase italic">
+                                    3D-модель кронштейна
+                                </h4>
+                                <p class="text-gray-600 mb-6 font-light italic text-sm leading-relaxed">
+                                    Сочетание 3D-сканирования и ручного проектирования в CAD. Срок выполнения — 1 день.
+                                </p>
+                                <a
+                                    href="case-design.html"
+                                    class="inline-block bg-brand-darkBlue text-white px-6 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-brand-golden transition italic"
+                                    >Кейс →</a
+                                >
+                            </div>
+                        </div>
 
                         <!-- Управление -->
                         <div class="flex mt-8 md:mt-0 md:absolute -bottom-6 right-0">
                             <button
-                                @click="activeSlide = activeSlide > 1 ? activeSlide - 1 : 2"
+                                @click="activeSlide = activeSlide > 1 ? activeSlide - 1 : 3"
                                 class="bg-brand-darkBlue p-3 text-white hover:text-brand-golden transition"
                             >
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -367,7 +397,7 @@
                                 </svg>
                             </button>
                             <button
-                                @click="activeSlide = activeSlide < 2 ? activeSlide + 1 : 1"
+                                @click="activeSlide = activeSlide < 3 ? activeSlide + 1 : 1"
                                 class="bg-brand-darkBlue p-3 text-white hover:text-brand-golden transition border-l border-gray-600"
                             >
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

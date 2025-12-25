@@ -1,0 +1,81 @@
+---
+layout: layout.njk
+title: Проектирование точной 3D-модели по изношенному образцу | TechPrint NN
+description: "Кейс по созданию параметрической 3D-модели кронштейна. Сочетание 3D-сканирования и ручного проектирования в CAD для восстановления геометрии детали."
+keywords: создание 3D модели по образцу, реверс-инжиниринг, SolidWorks, проектирование деталей, восстановление геометрии, 3D моделирование Нижний Новгород
+url: "cases/case-design"
+og_image: "img/cpp-dots.png"
+
+---
+<header class="bg-brand-darkBlue py-16 md:py-24 text-white overflow-hidden relative">
+    <div class="container mx-auto px-6 text-center md:text-left">
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8">
+            <span class="bg-brand-golden text-brand-darkBlue text-[9px] font-black px-3 py-1 tracking-[0.2em]">КЕЙС №085</span>
+            <nav class="text-gray-400 text-[9px] font-black uppercase tracking-widest">
+                <a href="index.html" class="hover:text-white">ГЛАВНАЯ</a> / <a href="cases.html" class="hover:text-white">КЕЙСЫ</a> / МОДЕЛИРОВАНИЕ
+            </nav>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-black uppercase italic leading-none tracking-tighter mb-12">
+            Высокоточное создание <br><span class="text-brand-golden">3D-модели кронштейна</span>
+        </h1>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 border-t border-gray-600 pt-10 mt-10 italic text-[11px] font-light">
+            <div>
+                <div class="text-[9px] uppercase font-black text-gray-400 tracking-widest mb-3 not-italic">Заказчик</div>
+                <p class="uppercase font-bold tracking-widest">ПК "ПромМех"</p>
+            </div>
+            <div>
+                <div class="text-[9px] uppercase font-black text-gray-400 tracking-widest mb-3 not-italic">Услуга</div>
+                <p class="uppercase font-bold tracking-widest">Создание CAD-модели (Hybrid Design)</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="py-16 md:py-24 bg-white container mx-auto px-6 max-w-4xl">
+    <article class="space-y-16 md:space-y-24">
+        <div class="flex flex-col md:flex-row gap-10 items-start">
+            <div class="md:w-1/3">
+                <h2 class="text-xl font-black text-brand-darkBlue uppercase italic border-l-4 border-brand-coral pl-4">Задача проекта</h2>
+            </div>
+            <div class="md:w-2/3 text-lg md:text-xl text-gray-600 font-light leading-relaxed italic">
+                <p>Основная цель — получить «чистую» цифровую модель кронштейна, пригодную для серийного производства. Оригинальный образец имел следы износа и критическую трещину, поэтому простое копирование было невозможно. Требовалось спроектировать деталь заново, используя физический объект как пространственный ориентир.</p>
+            </div>
+        </div>
+
+        <figure class="bg-brand-lightPurple border-4 border-brand-beige flex flex-col items-center justify-center p-6 md:p-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+                <div class="space-y-4">
+                    <div class="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden border border-gray-200">
+                        <img src="img/cpp-dots.png" class="w-full h-full object-cover" alt="Облако точек">
+                    </div>
+                    <p class="text-[10px] uppercase font-bold text-gray-400 tracking-widest text-center">1. Сбор данных (3D-скан)</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden border border-gray-200">
+                        <img src="img/ccp.png" class="w-full h-full object-cover" alt="Финальное моделирование">
+                    </div>
+                    <p class="text-[10px] uppercase font-bold text-brand-golden tracking-widest text-center">2. Моделирование и правка геометрии</p>
+                </div>
+            </div>
+            <figcaption class="mt-4 text-[9px] uppercase font-black text-brand-darkBlue tracking-widest opacity-60 italic text-center">Инженерный цикл: от «слепка» поврежденной детали к идеальной CAD-модели</figcaption>
+        </figure>
+
+        <div class="flex flex-col md:flex-row gap-10 items-start">
+            <div class="md:w-1/3">
+                <h2 class="text-brand-golden font-black text-4xl italic uppercase">Технология работы</h2>
+            </div>
+            <div class="md:w-2/3 space-y-8 text-gray-600 font-light">
+                <p>Мы применили гибридный метод моделирования, который гарантирует 100% точность посадочных мест:</p>
+                <ul class="list-disc pl-5 space-y-4">
+                    <li><strong>Бесконтактный замер:</strong> Первым этапом мы провели 3D-сканирование кронштейна. Это позволило получить облако точек — «цифровой слепок», фиксирующий реальное положение всех криволинейных поверхностей.</li>
+                    <li><strong>Ручное проектирование (Reverse Engineering):</strong> Полученный скан был импортирован в <strong>SolidWorks</strong> в качестве подложки. Опираясь на него, инженер вручную выстроил твердотельную модель. На этом этапе были исправлены все дефекты оригинала: выровнены плоскости, восстановлена соосность отверстий и «затянута» трещина.</li>
+                    <li><strong>Коррекция и допуски:</strong> В отличие от автоматического сканирования, ручная отрисовка позволила задать правильные номинальные размеры (например, вместо «шумного» диаметра отверстия 11.97 мм было установлено проектное значение 12 мм).</li>
+                </ul>
+                <div class="bg-brand-darkBlue text-white p-8 border-l-8 border-brand-golden shadow-xl uppercase text-[10px] font-black leading-loose tracking-[0.2em] italic">
+                    ИТОГ: Создана безупречная 3D-модель в формате STEP. Деталь готова к печати и фрезеровке. <br>Время реализации: 1 день. Стоимость: 4 500 рублей.
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
